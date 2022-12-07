@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <settings>
-    <OPC_SERVER>Graybox.Simulator.1</OPC_SERVER>
+    <OPC_SERVER>Matrikon.OPC.Simulation.1</OPC_SERVER>
     <OPC_GATEWAY_HOST>127.0.0.1</OPC_GATEWAY_HOST>
     <OPC_CLASS>Matrikon.OPC.Automation</OPC_CLASS>  
     <OPC_MODE>com</OPC_MODE>
+
+    <DB_NAME>asrmb</DB_NAME>
+    <DB_USER>postgres</DB_USER>
+    <DB_PASS>postgres</DB_PASS>
+    <DB_HOST>127.0.0.1</DB_HOST>
+    <DB_PORT>5432</DB_PORT>
+
+    <UPDATE>15</UPDATE>
 </settings>
 
 
 <!-- Matrikon.OPC.Simulation.1 -->
+<!-- Graybox.Simulator.1 -->

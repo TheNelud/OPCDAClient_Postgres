@@ -12,26 +12,25 @@ def get_settings(config_file="settings.xml"):
     except Exception as e:
         print(e)
    
+def create_connection():
+    setting = get_settings()
+    connection = psycopg2.connect(database=setting['DB_NAME'],
+                                    user=setting['DB_USER'],
+                                    password=setting['DB_PASS'],
+                                    host=setting['DB_HOST'],
+                                    port=setting['DB_PORT'])
+    return connection
 
+def select_all_tags():
+    connect = create_connection()
+    sql_all_tags = f"SELECT tag_name FROM all_tags "
+    cursor = connect.cursor()
+    cursor.execute(sql_all_tags)
+    return [elem for elem in cursor.fetchall()]
 
-
-# def create_connection():
-#     setting = get_settings()
-#     print(setting['db_name'])
-#     connection = psycopg2.connect(database=setting['db_name'],
-#                                     user=setting['db_user'],
-#                                     password=setting['db_password'],
-#                                     host=setting['db_host'],
-#                                     port=setting['db_port'])
-#     return connection
-
-# def select_asrmb_all_tags():
-#     connect = create_connection()
-#     sql_all_tags = f"SELECT tag_name FROM all_tags "
-#     cursor = connect.cursor()
-#     cursor.execute(sql_all_tags)
-#     dict_hfrpok = [elem for elem in cursor.fetchall()]
-#     print(dict_hfrpok)
-
-
-# select_asrmb_all_tags()
+def update_all_tags(tag_name, value, status, date_update):
+    connect = create_connection()
+    sql_all_tags = """UPDATE all_tags SET value=%s, date_update=%s, status=%s WHERE tag_name=%s"""
+    cursor = connect.cursor()
+    cursor.execute(sql_all_tags,(value, date_update, status, tag_name))
+    connect.commit()
