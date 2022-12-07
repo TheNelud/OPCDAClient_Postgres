@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<settings>
+    <OPC_SERVER>Graybox.Simulator.1</OPC_SERVER>
+    <OPC_GATEWAY_HOST>127.0.0.1</OPC_GATEWAY_HOST>
+    <OPC_CLASS>Matrikon.OPC.Automation</OPC_CLASS>  
+    <OPC_MODE>com</OPC_MODE>
+</settings>
+
+
+<!-- Matrikon.OPC.Simulation.1 -->
