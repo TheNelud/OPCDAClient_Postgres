@@ -19,18 +19,18 @@ def create_connection():
                                     password=setting['DB_PASS'],
                                     host=setting['DB_HOST'],
                                     port=setting['DB_PORT'])
+    print('Connections to database')
     return connection
 
-def select_all_tags():
-    connect = create_connection()
+def select_all_tags(connect):
     sql_all_tags = f"SELECT tag_name FROM all_tags "
     cursor = connect.cursor()
     cursor.execute(sql_all_tags)
     return [elem for elem in cursor.fetchall()]
 
-def update_all_tags(tag_name, value, status, date_update):
-    connect = create_connection()
+def update_all_tags(connect,tag_name, value, status, date_update):
     sql_all_tags = """UPDATE all_tags SET value=%s, date_update=%s, status=%s WHERE tag_name=%s"""
     cursor = connect.cursor()
     cursor.execute(sql_all_tags,(value, date_update, status, tag_name))
     connect.commit()
+
