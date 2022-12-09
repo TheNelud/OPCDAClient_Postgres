@@ -1,5 +1,5 @@
 import xml.etree.ElementTree as ET
-import psycopg2
+import psycopg2, time
 from data import *
 from datetime import datetime
 
@@ -15,14 +15,18 @@ def get_settings(config_file="settings.xml"):
         print(e)
    
 def create_connection():
-    setting = get_settings()
-    connection = psycopg2.connect(database=setting['DB_NAME'],
-                                    user=setting['DB_USER'],
-                                    password=setting['DB_PASS'],
-                                    host=setting['DB_HOST'],
-                                    port=setting['DB_PORT'])
-    print('Connections to database')
-    return connection
+    # try:
+        setting = get_settings()
+        connection = psycopg2.connect(database=setting['DB_NAME'],
+                                        user=setting['DB_USER'],
+                                        password=setting['DB_PASS'],
+                                        host=setting['DB_HOST'],
+                                        port=setting['DB_PORT'])
+        print('Connections to database')
+        return connection
+    # except:
+    #     time.sleep(5)
+    #     create_connection()
 
 def select_all_tags(connect):
     sql_all_tags = f"SELECT tag_name FROM all_tags "
@@ -49,7 +53,6 @@ def insert_ser_per_day(connect = create_connection()):
     tempstamp = datetime.now()
     tags_result = []
     for items in cursor.fetchall():
-        print(items)
         for i in range(len(data_ser_per_day)):
             if items[1] == data_ser_per_day[i]:
                 tags_result.append(items)
@@ -58,7 +61,6 @@ def insert_ser_per_day(connect = create_connection()):
     sql_query_insert="""INSERT INTO raport.ser_per_day (ser_1,ser_2,ser_3,ser_4, ser_5, ser_6, ser_7, ser_8, ser_9, ser_10,ser_11,ser_12,ser_13,ser_14,ser_15,ser_16,ser_17,ser_18,ser_19,ser_20,date_update)
                         VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"""
 
-    print(tags_sorted[19][2])
     cursor.execute(sql_query_insert, (tags_sorted[0][2],tags_sorted[1][2],tags_sorted[2][2],tags_sorted[3][2],tags_sorted[4][2],tags_sorted[5][2],tags_sorted[6][2],
                                         tags_sorted[7][2],tags_sorted[8][2],tags_sorted[9][2],tags_sorted[10][2],tags_sorted[11][2],tags_sorted[12][2],tags_sorted[13][2],
                                         tags_sorted[14][2],tags_sorted[15][2],tags_sorted[16][2],tags_sorted[17][2],tags_sorted[18][2],tags_sorted[19][2],tempstamp))
@@ -82,7 +84,6 @@ def insert_ser_per_month(connect = create_connection()):
     sql_query_insert="""INSERT INTO raport.ser_per_month (ser_101,ser_102,ser_103,ser_104, ser_105, ser_106, ser_107, ser_108, ser_109, ser_110,ser_111,ser_112,ser_113,ser_114,ser_115,ser_116,ser_117,ser_118,ser_119,ser_120,date_update)
                         VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"""
 
-    print(tags_sorted[19][2])
     cursor.execute(sql_query_insert, (tags_sorted[0][2],tags_sorted[1][2],tags_sorted[2][2],tags_sorted[3][2],tags_sorted[4][2],tags_sorted[5][2],tags_sorted[6][2],
                                         tags_sorted[7][2],tags_sorted[8][2],tags_sorted[9][2],tags_sorted[10][2],tags_sorted[11][2],tags_sorted[12][2],tags_sorted[13][2],
                                         tags_sorted[14][2],tags_sorted[15][2],tags_sorted[16][2],tags_sorted[17][2],tags_sorted[18][2],tags_sorted[19][2],tempstamp))
@@ -157,7 +158,5 @@ def insert_mag_techno(connect = create_connection()):
                                         tags_sorted[26][2],tags_sorted[27][2],tags_sorted[28][2],tempstamp))
     connect.commit()
 
-insert_mag_techno()
 
-    # sql_query_insert="""INSERT INTO  """
 

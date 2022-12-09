@@ -1,6 +1,7 @@
 from openopc2.utils import get_opc_da_client
 from openopc2.config import OpenOpcConfig
 from functions import *
+import schedule
 
 import time 
 
@@ -16,7 +17,7 @@ def main():
             if tag[0] in db_tags[i]:
                 update_all_tags(connect,tag[0],tag[1],tag[2],tag[3]) 
                 break
-
+    print("Update process")
 
 
 if __name__ == '__main__':
@@ -31,8 +32,23 @@ if __name__ == '__main__':
     print("Connection to OPC DA")
 
     connect = create_connection()
-    
+
+
+    insert_ser_per_day()
+    insert_ser_per_month()
+    insert_mer_per_month()
+    insert_mag_techno()
+
+    schedule.every(int(setting['UPDATE'])).seconds.do(main)
+    schedule.every().day.at('00:00:00').do(insert_ser_per_day)
+    schedule.every().day.at("00:00:00").do(insert_ser_per_month)
+    schedule.every().day.at("00:00:00").do(insert_mer_per_month)
+    schedule.every().day.at("00:00:00").do(insert_mag_techno)
+
+
+
     while True:
-        main()
-        time.sleep(int(setting['UPDATE']))
+        schedule.run_pending()
+        time.sleep(1)
+    
     
