@@ -1,0 +1,18 @@
+2022-12-12 14:10:10,585 - [WARNING] - functions - (functions.py).get_settings(18) - Ошибка в настроках
+2022-12-12 14:10:10,590 - [WARNING] - functions - (functions.py).create_connection(31) - Нет связи с базой данных
+2022-12-12 14:10:25,606 - [WARNING] - functions - (functions.py).get_settings(18) - Ошибка в настроках
+2022-12-12 14:10:25,609 - [WARNING] - functions - (functions.py).create_connection(31) - Нет связи с базой данных
+2022-12-12 14:10:40,622 - [WARNING] - functions - (functions.py).get_settings(18) - Ошибка в настроках
+2022-12-12 14:10:40,625 - [WARNING] - functions - (functions.py).create_connection(31) - Нет связи с базой данных
+2022-12-12 14:10:55,628 - [WARNING] - functions - (functions.py).get_settings(18) - Ошибка в настроках
+2022-12-12 14:10:55,641 - [WARNING] - functions - (functions.py).create_connection(31) - Нет связи с базой данных
+2022-12-12 14:11:10,645 - [WARNING] - functions - (functions.py).get_settings(18) - Ошибка в настроках
+2022-12-12 14:11:10,653 - [WARNING] - functions - (functions.py).create_connection(31) - Нет связи с базой данных
+2022-12-12 14:11:24,910 - [WARNING] - functions - (functions.py).get_settings(18) - Error in settings
+2022-12-12 14:11:24,917 - [WARNING] - functions - (functions.py).create_connection(31) - No connection to the database
+2022-12-12 14:11:39,921 - [WARNING] - functions - (functions.py).get_settings(18) - Error in settings
+2022-12-12 14:11:39,926 - [WARNING] - functions - (functions.py).create_connection(31) - No connection to the database
+2022-12-12 14:11:54,935 - [WARNING] - functions - (functions.py).get_settings(18) - Error in settings
+2022-12-12 14:11:54,941 - [WARNING] - functions - (functions.py).create_connection(31) - No connection to the database
+2022-12-12 14:12:09,954 - [WARNING] - functions - (functions.py).get_settings(18) - Error in settings
+2022-12-12 14:12:09,961 - [WARNING] - functions - (functions.py).create_connection(31) - No connection to the database

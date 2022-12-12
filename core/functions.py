@@ -2,6 +2,9 @@ import xml.etree.ElementTree as ET
 import psycopg2, time
 from data import *
 from datetime import datetime
+from log import *
+
+logger = get_logger(__name__)
 
 def get_settings(config_file="settings.xml"):   
     try:
@@ -12,21 +15,22 @@ def get_settings(config_file="settings.xml"):
             res[child.tag] = child.text
         return res
     except Exception as e:
-        print(e)
+        logger.warning("Error in settings", e)
    
 def create_connection():
-    # try:
+    try:
         setting = get_settings()
         connection = psycopg2.connect(database=setting['DB_NAME'],
                                         user=setting['DB_USER'],
                                         password=setting['DB_PASS'],
                                         host=setting['DB_HOST'],
                                         port=setting['DB_PORT'])
-        print('Connections to database')
+        logger.warning("Connecting to the database")
         return connection
-    # except:
-    #     time.sleep(5)
-    #     create_connection()
+    except:
+        logger.warning("No connection to the database")
+        time.sleep(15)
+        create_connection()
 
 def select_all_tags(connect):
     sql_all_tags = f"SELECT tag_name FROM all_tags "
@@ -35,7 +39,7 @@ def select_all_tags(connect):
     return [elem for elem in cursor.fetchall()]
 
 def update_all_tags(connect,tag_name, value, status, date_update):
-    sql_all_tags = """UPDATE all_tags SET value=%s, date_update=%s, status=%s WHERE tag_name=%s"""
+    sql_all_tags = """UPDATE all_tags SET tag_value=%s, date_update=%s, status=%s WHERE tag_name=%s"""
     cursor = connect.cursor()
     cursor.execute(sql_all_tags,(value, date_update, status, tag_name))
     connect.commit()

@@ -1,0 +1,12 @@
+2022-12-12 14:07:58,561 - [WARNING] - functions - (functions.py).create_connection(28) - Подключение к базе данных
+2022-12-12 14:07:58,605 - [WARNING] - functions - (functions.py).create_connection(28) - Подключение к базе данных
+2022-12-12 14:07:58,641 - [WARNING] - functions - (functions.py).create_connection(28) - Подключение к базе данных
+2022-12-12 14:07:58,681 - [WARNING] - functions - (functions.py).create_connection(28) - Подключение к базе данных
+2022-12-12 14:07:58,753 - [WARNING] - __main__ - (Opc_DA_Client.py).<module>(44) - Подключение к базе серверу OPC DA
+2022-12-12 14:07:58,793 - [WARNING] - functions - (functions.py).create_connection(28) - Подключение к базе данных
+2022-12-12 14:12:39,631 - [WARNING] - functions - (functions.py).create_connection(28) - Connecting to the database
+2022-12-12 14:12:39,688 - [WARNING] - functions - (functions.py).create_connection(28) - Connecting to the database
+2022-12-12 14:12:39,731 - [WARNING] - functions - (functions.py).create_connection(28) - Connecting to the database
+2022-12-12 14:12:39,770 - [WARNING] - functions - (functions.py).create_connection(28) - Connecting to the database
+2022-12-12 14:12:39,835 - [WARNING] - __main__ - (Opc_DA_Client.py).<module>(44) - Connection server OPC DA
+2022-12-12 14:12:39,876 - [WARNING] - functions - (functions.py).create_connection(28) - Connecting to the database
