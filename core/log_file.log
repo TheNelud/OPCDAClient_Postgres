@@ -10,3 +10,9 @@
 2022-12-12 14:12:39,770 - [WARNING] - functions - (functions.py).create_connection(28) - Connecting to the database
 2022-12-12 14:12:39,835 - [WARNING] - __main__ - (Opc_DA_Client.py).<module>(44) - Connection server OPC DA
 2022-12-12 14:12:39,876 - [WARNING] - functions - (functions.py).create_connection(28) - Connecting to the database
+2022-12-13 10:22:14,422 - [WARNING] - functions - (functions.py).create_connection(28) - Connecting to the database
+2022-12-13 10:22:14,466 - [WARNING] - functions - (functions.py).create_connection(28) - Connecting to the database
+2022-12-13 10:22:14,509 - [WARNING] - functions - (functions.py).create_connection(28) - Connecting to the database
+2022-12-13 10:22:14,551 - [WARNING] - functions - (functions.py).create_connection(28) - Connecting to the database
+2022-12-13 10:22:14,852 - [WARNING] - __main__ - (Opc_DA_Client.py).<module>(44) - Connection server OPC DA
+2022-12-13 10:22:15,012 - [WARNING] - functions - (functions.py).create_connection(28) - Connecting to the database

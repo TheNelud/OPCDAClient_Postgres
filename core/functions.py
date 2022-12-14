@@ -150,7 +150,7 @@ def insert_mag_techno(connect = create_connection()):
 
     sql_query_insert="""INSERT INTO raport.sen_equip (r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,
                                                         r11,r12,dy13,rt13,dy14,rt14,dy15,rt15,dy16,rt16,
-                                                        r17,r18,r19,r22,r23,r24,r25,r26,r27,update_time) 
+                                                        r17,r18,r19,r22,r23,r24,r25,r26,r27,date_update) 
                                 VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,
                                         %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,
                                         %s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""" #32
